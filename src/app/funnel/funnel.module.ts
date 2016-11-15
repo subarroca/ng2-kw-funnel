@@ -21,6 +21,7 @@ import { NgModule } from '@angular/core';
 
 // OWN
 import { FunnelComponent } from './funnel.component';
+import { FunnelSegmentComponent } from './funnel-segment/funnel-segment.component';
 
 
 
@@ -31,7 +32,8 @@ import { FunnelComponent } from './funnel.component';
     CommonModule
   ],
   declarations: [
-    FunnelComponent
+    FunnelComponent,
+    FunnelSegmentComponent
   ],
   exports: [
     FunnelComponent

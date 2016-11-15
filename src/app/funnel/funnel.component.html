@@ -1,3 +1,36 @@
-<p>
-  funnel works!
-</p>
+<svg [attr.viewBox] = viewBox>
+  <g
+    *ngFor = "let segment of _segments; let i = index"
+    [attr.transform] = getSegmentHOffset(i)>
+    <path
+      [attr.d] = "currentOfflineSegment[i]"
+      [style.fill] = segment.color>
+        <animate
+          #segmentAnimate
+          attributeName="d"
+          begin="indefinite"
+          dur="0.3s"
+          repeatCount="1"
+          [attr.from] = "previousOfflineSegment[i]"
+          [attr.to] = "currentOfflineSegment[i]" />
+    </path>
+  
+    <g
+      attr.transform = "translate({{segmentWidth - 10}}, {{height/2 - 40}})">      
+      <text
+        x = 0
+        y = 50
+        text-anchor = end
+        [style.fill] = segment.labelColor>
+        {{segment.value}}
+      </text>
+    </g>
+  
+  
+    <path
+      class = interface
+      attr.d = "
+      M{{segmentWidth}},{{height}}
+      L{{segmentWidth}},0"/>
+  </g>
+</svg>
