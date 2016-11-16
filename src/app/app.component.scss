@@ -3,3 +3,21 @@ ng2-kw-funnel{
 	height: 400px;
   display: block;
 }
+
+.holder{
+  text-align: center;
+  margin-top: 16px;
+}
+
+button{
+  border: 0;
+  background: #14143e;
+  color: white;
+  padding: 8px;
+  font-size: 2em;
+  outline: none;
+
+  &.active{
+    background: #fd1c49;
+  }
+}

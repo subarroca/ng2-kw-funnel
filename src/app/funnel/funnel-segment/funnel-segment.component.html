@@ -1,3 +1,32 @@
-<p>
-  funnel-segment works!
-</p>
+<svg>
+  <path
+    [attr.d] = currentPath
+    [style.fill] = color>
+      <animate
+        #animate
+        attributeName = d
+        begin = indefinite
+        dur = 0.3s
+        repeatCount = 1
+        [attr.from] = previousPath
+        [attr.to] = currentPath />
+  </path>
+
+  <g
+    attr.transform = "translate({{width - 10}}, {{height/2 - 40}})">      
+    <text
+      x = 0
+      y = 50
+      text-anchor = end
+      [style.fill] = labelColor>
+      {{to}}
+    </text>
+  </g>
+
+
+  <path
+    class = interface
+    attr.d = "
+      M{{width}},{{height}}
+      L{{width}},0"/>
+</svg>

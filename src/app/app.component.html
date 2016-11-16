@@ -1,4 +1,31 @@
 <ng2-kw-funnel
-	graphMode = lin
+	[graphMode] = mode
 	[segments] = segments>
 </ng2-kw-funnel>
+
+<div
+  class = holder>
+  <!-- <button
+    [class.active] = "mode === 'lin'"
+    (click) = "mode='lin'">
+    lin
+  </button>
+
+  <button
+    [class.active] = "mode === 'log'"
+    (click) = "mode='log'">
+    log
+  </button> -->
+
+  <button
+    [class.active] = "selectedData === 1"
+    (click) = "setData1()">
+    data 1
+  </button>
+
+  <button
+    [class.active] = "selectedData === 2"
+    (click) = "setData2()">
+    data 2
+  </button>
+</div>

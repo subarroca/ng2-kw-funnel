@@ -1,36 +1,15 @@
 <svg [attr.viewBox] = viewBox>
-  <g
+  <g ng2-kw-funnel-segment
     *ngFor = "let segment of _segments; let i = index"
-    [attr.transform] = getSegmentHOffset(i)>
-    <path
-      [attr.d] = "currentOfflineSegment[i]"
-      [style.fill] = segment.color>
-        <animate
-          #segmentAnimate
-          attributeName="d"
-          begin="indefinite"
-          dur="0.3s"
-          repeatCount="1"
-          [attr.from] = "previousOfflineSegment[i]"
-          [attr.to] = "currentOfflineSegment[i]" />
-    </path>
-  
-    <g
-      attr.transform = "translate({{segmentWidth - 10}}, {{height/2 - 40}})">      
-      <text
-        x = 0
-        y = 50
-        text-anchor = end
-        [style.fill] = segment.labelColor>
-        {{segment.value}}
-      </text>
-    </g>
-  
-  
-    <path
-      class = interface
-      attr.d = "
-      M{{segmentWidth}},{{height}}
-      L{{segmentWidth}},0"/>
+    [from] = "i ? _segments[i-1].value : undefined"
+    [to] = segment.value
+    [color] = segment.color
+    [labelColor] = segment.labelColor
+    [max] = _segments[0].value
+    [max] = _segments[_segments.length-1].value
+    [width] = segmentWidth
+    [height] = funnelHeight
+    [graphMode] = graphMode
+    [attr.transform] = "getSegmentOffset(i)">
   </g>
 </svg>
